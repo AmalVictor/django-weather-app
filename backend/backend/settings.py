@@ -6,6 +6,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 import dj_database_url
+from corsheaders.defaults import default_headers
 
 # Load environment variables
 load_dotenv()
@@ -115,13 +116,16 @@ REST_FRAMEWORK = {
 }
 
 # CORS settings
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-    "https://django-weather-app-1-nrjo.onrender.com",
-]
+#(CORS_ALLOWED_ORIGINS = [
+ #   "http://localhost:3000",
+ #   "http://127.0.0.1:3000",
+ #   "https://django-weather-app-1-nrjo.onrender.com",
+#])()
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'access-control-allow-origin',
+]
 
 # OpenWeather API settings
 OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', '') 
