@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.weather-card {
+  transition: transform 0.3s;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+/* City suggestions styling */
+.suggestion-item {
+  transition: all 0.2s;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f7ff;
+  transform: translateX(3px);
+}
+
+.suggestion-item .bi-search {
+  opacity: 0.5;
+  transition: all 0.2s;
+}
+
+.suggestion-item:hover .bi-search {
+  opacity: 1;
+  color: #0d6efd !important;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none !important;
+}
+
+.suggestions-dropdown {
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1050;
+}
+
+/* Weather icon enhancements */
+.weather-icon {
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+} 
