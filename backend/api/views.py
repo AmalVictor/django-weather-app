@@ -218,8 +218,9 @@ class CitySuggestionsView(APIView):
             data = response.json()
             
             if response.status_code != 200:
+                print(f"OpenWeather API Error: {data}")
                 return Response(
-                    {"error": "Failed to fetch city suggestions"}, 
+                    {"error": "Failed to fetch city suggestions"},
                     status=response.status_code
                 )
             
