@@ -3,7 +3,7 @@ import { WeatherData, SearchHistoryItem, User, CitySuggestion } from '../types';
 
 // Create axios instance with base URL
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:8000/api',
   withCredentials: true // needed for Django CSRF protection
 });
 

@@ -101,16 +101,28 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = []
+# CORS settings
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Development
+    "https://django-weather-app-2-h8ho.onrender.com",  # Production
+]
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'access-control-allow-origin',
+]
 
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Serve static files in production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Serve React build root files (manifest.json, favicon.ico, index.html)
 REACT_BUILD_DIR = os.path.join(BASE_DIR, 'staticfrontend', 'build')
-STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -124,20 +136,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
-
-# CORS settings
-#(CORS_ALLOWED_ORIGINS = [
- #   "http://localhost:3000",
- #   "http://127.0.0.1:3000",
- #   "https://django-weather-app-1-nrjo.onrender.com",
-#])()
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = [
-    "https://django-weather-app-2-h8ho.onrender.com",  # replace with actual frontend URL
-]
-CORS_ALLOW_HEADERS = list(default_headers) + [
-    'access-control-allow-origin',
-]
 
 # OpenWeather API settings
 OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', '') 
