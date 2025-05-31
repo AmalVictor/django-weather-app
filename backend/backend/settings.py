@@ -136,3 +136,17 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 
 # OpenWeather API settings
 OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY', '') 
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'ERROR',
+    },
+}
