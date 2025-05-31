@@ -104,8 +104,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfrontend', 'build', 'static'),
+    os.path.join(BASE_DIR, 'staticfrontend', 'build'),  # to serve root files like manifest.json, index.html
+    os.path.join(BASE_DIR, 'staticfrontend', 'build', 'static'),  # your static js/css files
 ]
+
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
