@@ -103,9 +103,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfrontend', 'build', 'static'),
-]
+STATICFILES_DIRS = []
+
 
 # Serve React build root files (manifest.json, favicon.ico, index.html)
 REACT_BUILD_DIR = os.path.join(BASE_DIR, 'staticfrontend', 'build')
