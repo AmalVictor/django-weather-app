@@ -21,7 +21,7 @@ API.interceptors.request.use(
 
 // Weather API
 export const getWeather = async (city: string): Promise<WeatherData> => {
-  const response = await API.get(`/api/weather/?city=${city}`);
+  const response = await API.get(`/weather/?city=${city}`);
   return response.data;
 };
 
@@ -30,7 +30,7 @@ export const getCitySuggestions = async (query: string): Promise<CitySuggestion[
   if (!query || query.length < 2) return [];
   
   try {
-    const response = await API.get(`/api/city-suggestions/?q=${encodeURIComponent(query)}`);
+    const response = await API.get(`/city-suggestions/?q=${encodeURIComponent(query)}`);
     return response.data;
   } catch (error) {
     console.error('Error fetching city suggestions:', error);
@@ -40,27 +40,27 @@ export const getCitySuggestions = async (query: string): Promise<CitySuggestion[
 
 // Authentication API
 export const login = async (username: string, password: string) => {
-  const response = await API.post('/api/auth/login/', { username, password });
+  const response = await API.post('/auth/login/', { username, password });
   return response.data;
 };
 
 export const register = async (username: string, email: string, password: string) => {
-  const response = await API.post('/api/auth/register/', { username, email, password });
+  const response = await API.post('/auth/register/', { username, email, password });
   return response.data;
 };
 
 export const logout = async () => {
-  const response = await API.post('/api/auth/logout/');
+  const response = await API.post('/auth/logout/');
   return response.data;
 };
 
 export const getCurrentUser = async (): Promise<User> => {
-  const response = await API.get('/api/auth/user/');
+  const response = await API.get('/auth/user/');
   return response.data;
 };
 
 // Search History API
 export const getSearchHistory = async (): Promise<SearchHistoryItem[]> => {
-  const response = await API.get('/api/history/');
+  const response = await API.get('/history/');
   return response.data;
 }; 
