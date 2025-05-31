@@ -174,11 +174,12 @@ const Home: React.FC = () => {
                 <div className="card-body">
                   <div className="row align-items-center">
                     <div className="col-md-6 text-center">
-                      <img
-                        src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-                        alt={weather.weather[0].description}
-                        className="img-fluid weather-icon"
-                      />
+                    <img
+                          src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                          alt={weather.weather[0].description}
+                          className="img-fluid weather-icon"
+                        />
+
                       <h4>{weather.weather[0].main}</h4>
                       <p className="text-muted">{weather.weather[0].description}</p>
                     </div>
