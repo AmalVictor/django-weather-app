@@ -9,6 +9,7 @@ import requests
 from .models import SearchHistory
 from .serializers import SearchHistorySerializer, UserSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.views.generic import TemplateView
 
 class WeatherView(APIView):
     permission_classes = [AllowAny]
@@ -252,3 +253,5 @@ class CitySuggestionsView(APIView):
                 {"error": str(e)}, 
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             ) 
+class FrontendAppView(TemplateView):
+    template_name = "index.html"
